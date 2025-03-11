@@ -1,3 +1,18 @@
+### CASHTRACKR - FrontEnd con Next.js TypeScript Tailwindcss y más
+
+# Creando el Proyecto
+- npx create-next-app@latest
+
+# Tailwindcss
+- npm install tailwindcss
+
+
+
+
+
+-------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -37,7 +52,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-### CASHTEACKR - FrontEnd con Next.js TypeScript Tailwindcss y más
 
-# Creando el Proyecto
-- npx create-next-app@latest
