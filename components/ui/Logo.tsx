@@ -1,6 +1,14 @@
+import Image from "next/image";
 
 export default function Logo() {
   return (
-    <img src="/logo.svg" alt="Logo CashTrackr" width={400} height={100} />
-  )
+    <Image
+      src="/logo.svg"
+      alt="Logo CashTrackr"
+      width={0}
+      height={0}
+      className="w-full"
+      priority
+    />
+  );
 }
