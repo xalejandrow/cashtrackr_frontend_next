@@ -1,3 +1,6 @@
+"use client"
+
+
 export default function RegisterPage() {
 
     console.log('Register Page');
