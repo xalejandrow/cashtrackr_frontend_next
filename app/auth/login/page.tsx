@@ -6,7 +6,7 @@ export const metadata : Metadata = {
   description: "CashTrackr - Iniciar Sesión",
 };
 
-export default function RegisterPage() {
+export default function LoginPage() {
     
   return (
     <>
