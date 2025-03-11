@@ -6,7 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      backgroundImage: {
+        "auth": "url('/grafico.svg')"
+      },
+      backgroudSize: {
+        '30': '30rem'
+      }
+    },
+  },
   plugins: [],
 };
 export default config;

@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --purple-950: #ffa500;
+}
+
+.bg-auth {
+  background-image: url('/grafico.svg');
+  background-size: 30rem;
+}
+
+
+@theme{
+  --purple-950: var(--purple-950);
 }
 
 @theme inline {
@@ -10,6 +21,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
 @media (prefers-color-scheme: dark) {
