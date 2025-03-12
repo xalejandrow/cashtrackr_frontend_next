@@ -12,9 +12,6 @@
 }
 
 
-@theme{
-  --purple-950: var(--purple-950);
-}
 
 @theme inline {
   --color-background: var(--background);
