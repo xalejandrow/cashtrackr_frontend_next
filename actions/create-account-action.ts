@@ -1,6 +1,6 @@
 "use server"
 
-export async function register() {
-    console.log('Desde Server Action');
+export async function register(formData: FormData) {
+    console.log(formData);
     
 }
