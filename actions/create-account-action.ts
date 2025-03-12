@@ -11,6 +11,11 @@ export async function register(formData: FormData) {
     }
 
     console.log(registerData);
+
+    // Validar
+
+    // registrar el usuario
+    
     
     
 }

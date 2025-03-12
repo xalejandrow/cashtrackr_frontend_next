@@ -6,8 +6,8 @@
 # Tailwindcss
 - npm install tailwindcss
 
-
-
+# Instalar zod para la validación
+- npm i zod
 
 
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
