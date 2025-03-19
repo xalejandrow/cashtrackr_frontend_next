@@ -1,8 +1,13 @@
 "use server"
 
 import { RegisterSchema } from "@/src/schemas";
+import { error } from "console";
 
-export async function register(formData: FormData) {
+type ActionStateType = {
+    errors: string[]
+} 
+
+export async function register(prevState : ActionStateType, formData: FormData) {
     console.log(formData);
 
     const registerData = {
@@ -12,21 +17,21 @@ export async function register(formData: FormData) {
         password_confirmation: formData.get("password_confirmation")
     }
 
-    console.log(registerData);
+    // console.log(registerData);
 
     // Validar
     const register = RegisterSchema.safeParse(registerData);
     // console.log(register.error);
 
-    const errors = register.error?.errors.map(error => error.message);
     
+    // console.log(errors);
     if(!register.success) {
+        const errors = register.error.errors.map(error => error.message);
         return {
-
+            errors
         }
     }
     
-    console.log(errors);
     console.log(register);
     
     // registrar el usuario
@@ -48,5 +53,8 @@ export async function register(formData: FormData) {
     const json = await req.json();
     console.log(json);
     
+    return {
+        errors: []
+    }
 
 }
