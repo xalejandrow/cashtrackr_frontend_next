@@ -24,6 +24,8 @@ export async function register(formData: FormData) {
     console.log(register);
     
     // registrar el usuario
+    const url = `${process.env.API_URL}/auth/create-account`;
+    console.log(url);
     
     
     
