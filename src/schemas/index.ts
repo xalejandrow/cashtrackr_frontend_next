@@ -15,4 +15,8 @@ export const RegisterSchema = z.object({
 });
 
 
-export const SuccessSchema = z.string().min(1, {message: 'Valor no válido'});
+export const SuccessSchema = z.string();
+
+export const ErrorResponseSchema = z.object({
+    error: z.string()
+});
