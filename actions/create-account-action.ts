@@ -1,5 +1,7 @@
 "use server"
 
+import { RegisterSchema } from "@/src/schemas";
+
 export async function register(formData: FormData) {
     console.log(formData);
 
@@ -13,7 +15,14 @@ export async function register(formData: FormData) {
     console.log(registerData);
 
     // Validar
+    const register = RegisterSchema.safeParse(registerData);
+    // console.log(register.error);
 
+    const errors = register.error?.errors.map(error => error.message);
+    console.log(errors);
+    
+    console.log(register);
+    
     // registrar el usuario
     
     
