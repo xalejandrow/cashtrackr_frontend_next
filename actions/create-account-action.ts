@@ -1,10 +1,11 @@
 "use server"
 
-import { RegisterSchema } from "@/src/schemas";
+import { RegisterSchema, SuccessSchema } from "@/src/schemas";
 import { error } from "console";
 
 type ActionStateType = {
-    errors: string[]
+    errors: string[],
+    success: string
 } 
 
 export async function register(prevState : ActionStateType, formData: FormData) {
@@ -28,11 +29,12 @@ export async function register(prevState : ActionStateType, formData: FormData) 
     if(!register.success) {
         const errors = register.error.errors.map(error => error.message);
         return {
-            errors
+            errors,
+            success: prevState.success
         }
     }
     
-    console.log(register);
+    // console.log(register);
     
     // registrar el usuario
     const url = `${process.env.API_URL}/auth/create-account`;
@@ -51,10 +53,13 @@ export async function register(prevState : ActionStateType, formData: FormData) 
     
     
     const json = await req.json();
-    console.log(json);
+    // console.log(json);
+    const success = SuccessSchema.parse(json);
+    console.log(success);
     
     return {
-        errors: []
+        errors: prevState.errors,
+        success
     }
 
 }
