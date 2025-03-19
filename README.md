@@ -9,6 +9,9 @@
 # Instalar zod para la validación
 - npm i zod
 
+# Formularo para ingresar el Token
+- npm i @chakra-ui/pin-input
+
 
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
