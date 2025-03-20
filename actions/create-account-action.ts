@@ -1,7 +1,6 @@
 "use server"
 
 import { ErrorResponseSchema, RegisterSchema, SuccessSchema } from "@/src/schemas";
-import { error } from "console";
 
 type ActionStateType = {
     errors: string[],
