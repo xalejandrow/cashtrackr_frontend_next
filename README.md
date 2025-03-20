@@ -12,6 +12,8 @@
 # Formularo para ingresar el Token
 - npm i @chakra-ui/pin-input
 
+# Toasts con React-toastify 
+- npm i react-toastify
 
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
