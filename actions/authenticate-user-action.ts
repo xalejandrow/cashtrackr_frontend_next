@@ -1,6 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { ErrorResponseSchema, LoginSchema } from "@/src/schemas";
 
 type ActionStateType = {
@@ -34,6 +35,12 @@ export async function authenticate(prevState : ActionStateType, formData: FormDa
     });
 
     const json = await req.json();
+    if(!req.ok) {
+        const  { error } = ErrorResponseSchema.parse(json);
+        return {
+            errors: [error]
+        }
+    }
 
     // Setear Cookies
     (await cookies()).set({
@@ -43,16 +50,6 @@ export async function authenticate(prevState : ActionStateType, formData: FormDa
         path: '/'
     })
 
-    if(!req.ok) {
-        const  { error } = ErrorResponseSchema.parse(json);
-        return {
-            errors: [error]
-        }
-    }
-        
-
-    return {
-        errors: []
-    }
+    redirect('/admin');   
    
 }
