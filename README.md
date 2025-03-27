@@ -18,6 +18,8 @@
 # HeadlessUI - Popover y HeroIcons
 - npm install @headlessui/react @heroicons/react
 
+# Instalar server only para el logout
+- npm i server-only
 
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
