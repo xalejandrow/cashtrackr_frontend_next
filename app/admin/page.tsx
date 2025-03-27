@@ -1,9 +1,9 @@
-import { verifySession } from "@/src/auth/dal";
+// import { verifySession } from "@/src/auth/dal";
 import Link from "next/link";
 
 export default async function AdminPage() {
 
-    await verifySession();
+    // await verifySession();
 
     return (
         <>
