@@ -15,6 +15,10 @@
 # Toasts con React-toastify 
 - npm i react-toastify
 
+# HeadlessUI - Popover y HeroIcons
+- npm install @headlessui/react @heroicons/react
+
+
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
 
