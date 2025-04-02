@@ -1,9 +1,10 @@
 import { validateToken } from "@/actions/validate-token-action";
 import { PinInput, PinInputField } from "@chakra-ui/pin-input";
-import { useActionState, useEffect, useState } from "react";
+import { use, useActionState, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function ValidateTokenForm() {
-    const [token, setToken] = useState("");
+    const [token, setToken] = useState('');
     const [isComplete, setIsComplete] = useState(false);
 
     const validateTokenInput = validateToken.bind(null, token);
@@ -12,11 +13,22 @@ export default function ValidateTokenForm() {
         success: ''
     });
 
+    console.log(state);
+    
+
     useEffect(() => {
         if(isComplete){
             dispatch();
         }
-    },[isComplete]);
+    }, [isComplete]);
+
+    useEffect(() => {
+        if(state.errors){
+            state.errors.forEach((error) => {
+                toast.error(error);
+            });
+        }
+    }, [state])
 
     const handleChange = (token: string) => {
             setIsComplete(false);
