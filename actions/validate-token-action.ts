@@ -12,7 +12,8 @@ export async function validateToken(token: string, prevState: ActionStateType ){
     if(!resetPasswordToken.success){
         return {
             errors: resetPasswordToken.error.issues.map(issue => issue.message),
-            message: ''
+            success: ''
+            // message: ''
         }
     }
 
