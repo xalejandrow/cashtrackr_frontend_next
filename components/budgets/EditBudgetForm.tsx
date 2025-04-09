@@ -1,15 +1,18 @@
 "use client";
 
+import { Budget } from "@/src/schemas";
 import BudgetForm from "./BudgetForm";
 
-export default function EditBudgetForm() {
+export default function EditBudgetForm({budget} : {budget: Budget}) {
   return (
         <form className="mt-10 space-y-3" 
             noValidate 
             action={() => {}}
         >
 
-            <BudgetForm />
+            <BudgetForm 
+                budget={budget}
+            />
             
             <input
                 type="submit"
