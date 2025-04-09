@@ -4,6 +4,7 @@ import { Budget } from "@/src/schemas";
 import BudgetForm from "./BudgetForm";
 import { useActionState } from "react";
 import { editBudget } from "@/actions/edit-budget-action";
+import ErrorMessage from "../ui/ErrorMessage";
 
 export default function EditBudgetForm({budget} : {budget: Budget}) {
 
@@ -20,6 +21,7 @@ export default function EditBudgetForm({budget} : {budget: Budget}) {
                 action={dispatch}
             >
 
+                {state.errors.map(error => <ErrorMessage key={error}>{error}</ErrorMessage>)}
                 <BudgetForm 
                     budget={budget}
                 />
