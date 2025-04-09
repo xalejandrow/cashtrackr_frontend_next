@@ -1,3 +1,4 @@
+import EditBudgetForm from "@/components/budgets/EditBudgetForm";
 import getToken from "@/src/auth/token";
 // import { BudgetAPIResponseSchema } from "@/src/schemas";
 import Link from "next/link";
@@ -20,7 +21,7 @@ const getBudget = async (budgetId: string) => {
         notFound();
     }
 
-    console.log('json en getBudget: ',json);
+    // console.log('json en getBudget: ',json);
     // return BudgetAPIResponseSchema.parse(json.data);
     return json;
     // const budget : Budget = BudgetAPIResponseSchema.parse(json);
@@ -33,7 +34,7 @@ export default async function EditBudgetPage({params} : {params: {id: string}}) 
     
     const {id} = await params;
     const budget = await getBudget(id);
-    console.log('budget en Function: ',budget);    
+    // console.log('budget en Function: ',budget);    
     
     return (
         <>
@@ -55,7 +56,7 @@ export default async function EditBudgetPage({params} : {params: {id: string}}) 
             </Link>
             </div>
             <div className='p-10 mt-10  shadow-lg border '>
-            
+                <EditBudgetForm />
             </div>
       </>
     )
