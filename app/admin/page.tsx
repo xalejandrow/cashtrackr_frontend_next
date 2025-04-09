@@ -19,7 +19,7 @@ async function getUserBudgets() {
   const req = await fetch(url, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
   });
 

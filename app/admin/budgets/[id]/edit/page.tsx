@@ -11,7 +11,7 @@ const getBudget = async (budgetId: string) => {
     const req = await fetch(url, {
         method: "GET",
         headers: {
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
     });
