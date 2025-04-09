@@ -2,6 +2,7 @@
 
 import getToken from "@/src/auth/token";
 import { Budget, DraftBudgetSchema, ErrorResponseSchema, SuccessSchema } from "@/src/schemas";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 type ActionStateType = {
     errors: string[];
@@ -47,7 +48,13 @@ export async function editBudget(budgetId: Budget['id'], prevState: ActionStateT
             success: ''
         }
     }
-    
+
+    // Valida toda la url con todas las peticiones que hay
+    revalidatePath('/admin');
+
+    // Solo valida la ruta de budgets (ciertas peticiones)
+    // revalidateTag('/all-budgets');
+
     const success = SuccessSchema.parse(json);
 
     return (
