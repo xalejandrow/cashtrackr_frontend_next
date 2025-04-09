@@ -92,13 +92,13 @@ export default async function AdminPage() {
         </ul>
       ) : (
         <p className="text-center py-20">
-          No hay presupuestos aún {""}
+          No hay presupuestos aún {' '}
           <Link
             href={"/admin/budgets/new"}
             className="text-purple-950 font-bold"
           >
-            {" "}
-            comienza creando uno
+            {' '}
+             comienza creando uno
           </Link>
         </p>
       )}
