@@ -7,7 +7,7 @@ import { UserSchema } from "../schemas";
 import getToken from "./token";
 
 export const verifySession = cache( async () => {
-    const token = getToken();
+    const token = await getToken();
 
     if(!token) {
         redirect('/auth/login');
