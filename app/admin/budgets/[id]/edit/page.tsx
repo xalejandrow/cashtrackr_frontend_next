@@ -1,6 +1,7 @@
 import EditBudgetForm from "@/components/budgets/EditBudgetForm";
 import getToken from "@/src/auth/token";
-// import { BudgetAPIResponseSchema } from "@/src/schemas";
+import { BudgetAPIResponseSchema } from "@/src/schemas";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -22,19 +23,29 @@ const getBudget = async (budgetId: string) => {
     }
 
     // console.log('json en getBudget: ',json);
-    // return BudgetAPIResponseSchema.parse(json.data);
-    return json;
-    // const budget : Budget = BudgetAPIResponseSchema.parse(json);
-    // const budget = BudgetAPIResponseSchema.parse(json);
+    // return json;
+    const budget = BudgetAPIResponseSchema.parse(json);
     // console.log('budget en getBudget: ',budget);
-    // return budget;
+    return budget;
 }
 
-export default async function EditBudgetPage({params} : {params: {id: string}}) {
+export async function generateMetadata({params} : {params: Promise<{id: string}>}) : Promise<Metadata> {
+
+    const {id} = await params;
+    const budget = await getBudget(id);
+    console.log('budget' ,budget);
+    
+    return {
+            title: `CashTrackr - ${budget.name}`,
+            description: `CashTrackr - ${budget.name}`
+    }
+}
+
+export default async function EditBudgetPage({params} : {params: Promise<{id: string}>}) {
     
     const {id} = await params;
     const budget = await getBudget(id);
-    // console.log('budget en Function: ',budget);    
+    console.log('budget en Function: ',budget);    
     
     return (
         <>
@@ -42,7 +53,7 @@ export default async function EditBudgetPage({params} : {params: {id: string}}) 
             <div className='w-full md:w-auto'>
                 <h1 className='font-black text-4xl text-purple-950 my-5'>
                 Editar Presupuesto:
-                 {budget.budget.name}
+                 {budget.name}
                 </h1>
                 <p className="text-xl font-bold">Llena el formulario y crea un nuevo {''}
                 <span className="text-amber-500">presupuesto</span>
@@ -57,7 +68,7 @@ export default async function EditBudgetPage({params} : {params: {id: string}}) 
             </div>
             <div className='p-10 mt-10  shadow-lg border '>
                 <EditBudgetForm 
-                    budget={budget.budget}
+                    budget={budget}
                 />
             </div>
       </>
