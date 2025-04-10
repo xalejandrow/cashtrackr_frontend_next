@@ -1,3 +1,4 @@
+import AddExpenseButton from "@/components/expenses/AddExpenseButton";
 import { getBudget } from "@/src/services/budgets";
 import { Metadata } from "next";
 
@@ -28,6 +29,7 @@ export default async function BudgetDetailsPage({params}: { params: Promise<{ id
                     Administra tus {""} <span className="text-amber-500">gastos</span>
                 </p>
                 </div>
+                <AddExpenseButton />
             </div>
         </>
     );
