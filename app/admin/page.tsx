@@ -69,7 +69,7 @@ export default async function AdminPage() {
             <li key={budget.id} className="flex justify-between gap-x-6 p-5 ">
               <div className="flex min-w-0 gap-x-4">
                 <div className="min-w-0 flex-auto space-y-2">
-                  <p className="text-sm font-semibold leading-6 text-gray-300">
+                  <p className="text-sm font-semibold leading-6 text-gray-500">
                   {/* <p className="text-sm font-semibold leading-6 text-gray-900"> */}
                     <Link
                         href={`/admin/budgets/${budget.id}`}
