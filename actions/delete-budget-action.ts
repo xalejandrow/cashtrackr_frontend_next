@@ -1,20 +1,23 @@
 "use server"
 
 import getToken from "@/src/auth/token";
-import { Budget, ErrorResponseSchema, PasswordValidationSchema } from "@/src/schemas";
+import { Budget, ErrorResponseSchema, PasswordValidationSchema, SuccessSchema } from "@/src/schemas";
+import { revalidatePath } from "next/cache";
 
 type ActionStateType = {
-    errors: string[];
+    errors: string[]
+    success: string
 }
 export async function deleteBudget(budgetId: Budget['id'],prevStaet: ActionStateType, formData: FormData) {
     // console.log('desde deleteBudget');
-    console.log(formData.get('password'));
-    console.log('budgetId', budgetId);
+    // console.log(formData.get('password'));
+    // console.log('budgetId', budgetId);
     
     const currentPassword = PasswordValidationSchema.safeParse(formData.get('password'));
     if(!currentPassword.success) {
         return {
-            errors: currentPassword.error.issues.map((issue) => issue.message)
+            errors: currentPassword.error.issues.map((issue) => issue.message),
+            success: ''
         }
     }
 
@@ -38,7 +41,8 @@ export async function deleteBudget(budgetId: Budget['id'],prevStaet: ActionState
     if(!checkPasswordReq.ok) {
         const {error} = ErrorResponseSchema.parse(checkPasswordJson);
         return {
-            errors: [error]
+            errors: [error],
+            success: ''
         }
     }
     
@@ -57,12 +61,17 @@ export async function deleteBudget(budgetId: Budget['id'],prevStaet: ActionState
     if(!deleteBudgetReq.ok) {
         const {error} = ErrorResponseSchema.parse(deleteBudgetJson);
         return {
-            errors: [error]
+            errors: [error],
+            success: ''
         }
     }
+
+    revalidatePath('/admin')
     
+    const success = SuccessSchema.parse(deleteBudgetJson)
     
     return {
         errors: [],
+        success
     }
 }
