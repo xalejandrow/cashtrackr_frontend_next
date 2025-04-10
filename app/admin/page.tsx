@@ -1,4 +1,5 @@
 import BudgetMenu from "@/components/budgets/BudgetMenu";
+import DeleteBudgetModal from "@/components/budgets/DeleteBudgetModal";
 import getToken from "@/src/auth/token";
 import { BudgetsAPIResponseSchema } from "@/src/schemas";
 import { formatCurrency, formatDate } from "@/src/utils";
@@ -59,6 +60,7 @@ export default async function AdminPage() {
       </div>
 
       {budgets.length ? (
+        <>
         <ul
           role="list"
           className="divide-y divide-gray-300 border shadow-lg mt-10 "
@@ -93,6 +95,9 @@ export default async function AdminPage() {
             </li>
           ))}
         </ul>
+
+		<DeleteBudgetModal />
+        </>
       ) : (
         <p className="text-center py-20">
           No hay presupuestos aún {' '}
