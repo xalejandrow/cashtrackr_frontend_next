@@ -1,4 +1,5 @@
 import AddExpenseButton from "@/components/expenses/AddExpenseButton";
+import ModalContainer from "@/components/ui/ModalContainer";
 import { getBudget } from "@/src/services/budgets";
 import { Metadata } from "next";
 
@@ -31,6 +32,8 @@ export default async function BudgetDetailsPage({params}: { params: Promise<{ id
                 </div>
                 <AddExpenseButton />
             </div>
+
+            <ModalContainer />
         </>
     );
 }
