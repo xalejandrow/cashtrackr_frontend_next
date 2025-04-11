@@ -24,6 +24,9 @@
 # Gráficas circulares
 - npm i react-circular-progressbar
 
+# Tailwindcss Forms
+- npm i @tailwindcss/forms
+
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
 
