@@ -1,5 +1,6 @@
 import AddExpenseButton from "@/components/expenses/AddExpenseButton";
 import ExpenseMenu from "@/components/expenses/ExpenseMenu";
+import Amount from "@/components/ui/Amount";
 import ModalContainer from "@/components/ui/ModalContainer";
 import { getBudget } from "@/src/services/budgets";
 import { formatCurrency, formatDate } from "@/src/utils";
@@ -39,6 +40,25 @@ export default async function BudgetDetailsPage({params}: {params: Promise<{ id:
 
         {budget.expenses.length ? (
             <>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-10">
+                <div>Grafica aquí</div>
+                <div className="flex flex-col justify-center items-center md:items-start gap-5">
+                    <Amount 
+                        label="Presupuesto"
+                        amount={300}
+                    />
+                    <Amount 
+                        label="Disponible"
+                        amount={300}
+                    />
+                    <Amount 
+                        label="Gastado"
+                        amount={300}
+                    />
+                </div>
+
+            </div>
             <h1 className="font-black text-4xl text-purple-950 mt-10">
                 Gastos en este presupuesto
             </h1>
