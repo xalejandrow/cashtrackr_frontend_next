@@ -59,7 +59,7 @@ export default async function editExpense(
 
         const success = SuccessSchema.parse(json);
 
-        revalidatePath('/admin/budgets/${budgetId}');
+        revalidatePath(`/admin/budgets/${budgetId}`);
             
         return {
             errors: [],
