@@ -21,6 +21,9 @@
 # Instalar server only para el logout
 - npm i server-only
 
+# Gráficas circulares
+- npm i react-circular-progressbar
+
 -------------------------------- CREADO POR EL INSTALADOR ---------------------------------------------------
 
 

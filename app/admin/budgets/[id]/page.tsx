@@ -1,3 +1,4 @@
+import ProgressBar from "@/components/budgets/ProgressBar";
 import AddExpenseButton from "@/components/expenses/AddExpenseButton";
 import ExpenseMenu from "@/components/expenses/ExpenseMenu";
 import Amount from "@/components/ui/Amount";
@@ -45,7 +46,9 @@ export default async function BudgetDetailsPage({params}: {params: Promise<{ id:
             <>
 
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10">
-                <div>Grafica aquí</div>
+               
+                <ProgressBar />
+                
                 <div className="flex flex-col justify-center items-center md:items-start gap-5">
                     <Amount 
                         label="Presupuesto"
