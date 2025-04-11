@@ -26,6 +26,9 @@ export default async function BudgetDetailsPage({params}: {params: Promise<{ id:
     const budget = await getBudget(id);
     // console.log(budget);
 
+    const totalSpent = budget.expenses.reduce((total, expense) => +expense.amount + total, 0);
+    const totalAvailable = +budget.amount - totalSpent;
+
     return (
         <>
         <div className="flex justify-between items-center">
@@ -46,15 +49,15 @@ export default async function BudgetDetailsPage({params}: {params: Promise<{ id:
                 <div className="flex flex-col justify-center items-center md:items-start gap-5">
                     <Amount 
                         label="Presupuesto"
-                        amount={300}
+                        amount={+budget.amount}
                     />
                     <Amount 
                         label="Disponible"
-                        amount={300}
+                        amount={totalAvailable}
                     />
                     <Amount 
                         label="Gastado"
-                        amount={300}
+                        amount={totalSpent}
                     />
                 </div>
 
