@@ -2,8 +2,9 @@
 
 import { updateUser } from "@/actions/update-user-action";
 import { User } from "@/src/schemas";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import ErrorMessage from "../ui/ErrorMessage";
+import { toast } from "react-toastify";
 
 export default function ProfileForm({user} : {user: User}) {
 
@@ -11,6 +12,12 @@ export default function ProfileForm({user} : {user: User}) {
         errors: [],
         success: ''
     })
+
+    useEffect(() => {
+        if (state.success) {
+            toast.success(state.success)
+        }
+    }, [state])
 
     return (
         <>
