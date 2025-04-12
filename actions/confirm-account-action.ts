@@ -3,7 +3,7 @@
 import { ErrorResponseSchema, SuccessSchema, TokenSchema } from "@/src/schemas";
 
 type ActionStateType = {
-    errors: string[],
+    errors: string[]
     success: string
 }
 export async function confirmAccount( token: string, prevState: ActionStateType) {

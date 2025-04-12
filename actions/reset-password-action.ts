@@ -3,7 +3,7 @@
 import { ErrorResponseSchema, ResetPasswordSchema, SuccessSchema } from "@/src/schemas";
 
 type ActionStateType = {
-    errors: string[],
+    errors: string[]
     success: string
 }
 export async function resetPassword(token: string, prevState: ActionStateType, formData: FormData) {

@@ -3,7 +3,7 @@
 import { ErrorResponseSchema, RegisterSchema, SuccessSchema } from "@/src/schemas";
 
 type ActionStateType = {
-    errors: string[],
+    errors: string[]
     success: string
 } 
 
