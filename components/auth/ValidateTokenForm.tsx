@@ -40,8 +40,7 @@ export default function ValidateTokenForm({ setIsValidToken, token, setToken }: 
             setIsValidToken(true);
 
         }
-    }, [state]);
-    // }, [state, setIsValidToken]);
+    }, [state, setIsValidToken]);
 
     const handleChange = (token: string) => {
             setIsComplete(false);

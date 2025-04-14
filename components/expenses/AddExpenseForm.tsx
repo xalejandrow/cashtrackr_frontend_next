@@ -12,7 +12,7 @@ export default function AddExpenseForm({closeModal}: {closeModal: () => void}) {
 	// console.log(id);
 	
 
-	const createExpenseWithBudgetId = createExpense.bind(null, +id);
+	const createExpenseWithBudgetId = createExpense.bind(null, +id!);
 	const [state, dispatch] = useActionState(createExpenseWithBudgetId, {
 		errors: [],
 		success: '',
@@ -23,7 +23,7 @@ export default function AddExpenseForm({closeModal}: {closeModal: () => void}) {
 			toast.success(state.success);
 			closeModal();
 		}
-	}, [state])
+	}, [state, closeModal]);
 
 	return (
 		<>

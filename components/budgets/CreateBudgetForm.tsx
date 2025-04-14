@@ -28,7 +28,7 @@ export default function CreateBudgetForm() {
 			// 	}
 			// });
 		}
-	}, [state]);
+	}, [state, router]);
 
 	return (
 		<form className="mt-10 space-y-3" 

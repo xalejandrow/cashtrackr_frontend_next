@@ -4,8 +4,8 @@ import getToken from "@/src/auth/token"
 import { ErrorResponseSchema, SuccessSchema, UpdatePasswordSchema } from "@/src/schemas"
 
 type ActionStateType = {
-    errors: []
-    success: ''
+    errors: string[]
+    success: string
 }
 
 export async function updatePassword(prevState: ActionStateType, formData: FormData) {

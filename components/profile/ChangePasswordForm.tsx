@@ -1,14 +1,14 @@
 "use client"
 
-import { updatePassword } from "@/actions/update-password-action"
 import { useActionState, useEffect, useRef } from "react"
 import ErrorMessage from "../ui/ErrorMessage"
 import { toast } from "react-toastify"
+import { updatePassword } from "@/actions/update-password-action"
 
 export default function ChangePasswordForm() {
 
     const ref = useRef<HTMLFormElement>(null)
-    const [state, dispatch]  = useActionState(updatePassword, {
+    const [state, dispatch]  = useActionState( updatePassword , {
         errors: [],
         success: ''
     })
